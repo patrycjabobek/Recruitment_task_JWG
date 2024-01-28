@@ -1,8 +1,11 @@
+import SvgIcon from "./SvgIcon";
+
 class FAQItem {
   constructor(question, answer) {
     this.question = question;
     this.answer = answer;
-    this.htmlElement = null;
+    this.htmlElement = this.createComponent();
+    this.setupEventListeners();
   }
 
   createComponent() {
@@ -10,10 +13,22 @@ class FAQItem {
     container.classList.add("collapsible__container");
 
     const questionElement = document.createElement("button");
-    questionElement.textContent = this.question;
+    questionElement.classList.add("question");
 
-    const arrowIcon = this.createArrowIcon();
-    questionElement.appendChild(arrowIcon);
+    const svgContent =
+      '<rect x="22.6279" y="11.9125" width="15.9756" height="3.55558" transform="rotate(135 22.6279 11.9125)" fill="white"></rect><rect x="11.3145" y="23.226" width="16.0001" height="3.55014" transform="rotate(-135 11.3145 23.226)" fill="white"></rect>';
+    const arrowIcon = new SvgIcon({
+      iconName: "simpleArrowDown",
+      width: 40,
+      height: 41,
+      viewBox: "0 0 40 41",
+      color: "none",
+      svgContent: svgContent,
+    });
+    arrowIcon.render(questionElement);
+
+    const questionText = document.createTextNode(this.question);
+    questionElement.appendChild(questionText);
     container.appendChild(questionElement);
 
     const answerElement = document.createElement("div");
@@ -21,65 +36,22 @@ class FAQItem {
     answerElement.textContent = this.answer;
     container.appendChild(answerElement);
 
-    container.addEventListener("click", () => this.toggleAnswer());
-
     return container;
   }
 
-  createArrowIcon() {
-    const iconSvg = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "svg"
-    );
-
-    iconSvg.setAttribute("width", "40");
-    iconSvg.setAttribute("height", "41");
-    iconSvg.setAttribute("viewBox", "0 0 40 41");
-    iconSvg.setAttribute("fill", "none");
-
-    iconSvg.appendChild(
-      this.getNode("rect", {
-        x: "22.6279",
-        y: "11.9125",
-        width: "15.9756",
-        height: "3.55558",
-        transform: "rotate(135 22.6279 11.9125)",
-        fill: "white",
-      })
-    );
-    iconSvg.appendChild(
-      this.getNode("rect", {
-        x: "11.3145",
-        y: "23.226",
-        width: "16.0001",
-        height: "3.55014",
-        transform: "rotate(-135 11.3145 23.226)",
-        fill: "white",
-      })
-    );
-
-    return iconSvg;
-  }
-
-  getNode(n, v) {
-    n = document.createElementNS("http://www.w3.org/2000/svg", n);
-    for (var p in v)
-      n.setAttributeNS(
-        null,
-        p.replace(/[A-Z]/g, function (m, p, o, s) {
-          return "-" + m.toLowerCase();
-        }),
-        v[p]
-      );
-    return n;
+  setupEventListeners() {
+    this.htmlElement
+      .querySelector(".question")
+      .addEventListener("click", () => {
+        this.toggleAnswer();
+      });
   }
 
   toggleAnswer() {
-    if (this.htmlElement) {
-      const answerElement = this.htmlElement.querySelector(".answer");
-      answerElement.style.display =
-        answerElement.style.display === "block" ? "none" : "block";
-    }
+    const answer = this.htmlElement.querySelector(".answer");
+    answer.style.display = answer.style.display === "block" ? "none" : "block";
+
+    console.log(`Toggled answer for question: ${this.question}`);
   }
 }
 

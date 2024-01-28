@@ -52,7 +52,7 @@
         <div class="section-main__content-header" id="job-offer__details">
           <h1>Lorem 
             ipsum sim
-            dolor sim.</h3>
+            dolor sim.</h1>
         </div>
         <div class="section-main__content-text">
           <h3>Find your employee. Find your employer.</h3>
@@ -78,35 +78,17 @@
           <h3>Znajdź idealne warunki dla siebie.</h3>
         </div>
         <div class="section-joboffers__content-more">
+          <a href="#jobOffersList">
           <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="#944385" class="arrow" >
             <rect x="37.5146" y="24.6226" width="23.8719" height="5.30487" transform="rotate(135 37.5146 24.6226)" fill="#944385" />
             <rect x="20.6084" y="41.5288" width="23.8719" height="5.30487" transform="rotate(-135 20.6084 41.5288)" fill="#944385"/>
             <rect x="17.9033" y="38.9293" width="35.8079" height="5.30487" transform="rotate(-90 17.9033 38.9293)" fill="#944385"/>
           </svg>
           <h3>Wszystkie oferty</h3>
+        </a>
         </div>
       </div>
-      <div class="section-joboffers__list">
-        <div class="section-joboffers__list-item">
-          <div class="section-joboffers__list-item__salary">15€</div>
-          <div class="section-joboffers__list-item__info">
-            <h2>Hydraulik</h2>
-            <h4>Nazwa firmy: Lorem ipsum dolor<br>
-            Miejsce pracy: Berlin, Niemcy</h4>
-          </div>
-          <div class="section-joboffers__list-item__description">
-            <h4>OPIS</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem facilisi at tincidunt condimentum ipsum non. Felis erat curabitur mauris morbi. Felis erat curabitur mauris morbi.</p>
-          </div>
-          <div class="section-joboffers__list-item__more">
-            <a href="#">WIĘCEJ<svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none">
-              <rect x="2.62549" y="0.356445" width="12.3174" height="2.73721" fill="black"/>
-              <rect x="14.9614" y="0.356323" width="12.3174" height="2.73721" transform="rotate(90 14.9614 0.356323)" fill="black"/>
-              <rect x="15" y="2.29187" width="18.4762" height="2.73721" transform="rotate(135 15 2.29187)" fill="black"/>
-            </svg></a>
-          </div>
-        </div>
-
+      <div class="section-joboffers joboffers__list" id="jobOffersList">
       </div>
     </section>
     <section class="section-wrap section-qna" id="questionsAndAnswers">
@@ -126,25 +108,21 @@
           <div class="section-qna__content-employer__questions" id="faqEmployerList">
             </div>
           </div>
-        </div>
-        <div class="section-qna__content-employee" >
-          <div>
-            <h3>Pytania pracowników </h3>
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
-              <rect x="7.00098" y="0.356445" width="32.8463" height="7.29917" fill="black"/>
-              <rect x="39.8975" y="0.356445" width="32.8463" height="7.29917" transform="rotate(90 39.8975 0.356445)" fill="black"/>
-              <rect x="40" y="5.51758" width="49.2694" height="7.29917" transform="rotate(135 40 5.51758)" fill="black"/>
-            </svg>
-
+          <div class="section-qna__content-employee" >
+            <div>
+              <h3>Pytania pracowników </h3>
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
+                <rect x="7.00098" y="0.356445" width="32.8463" height="7.29917" fill="black"/>
+                <rect x="39.8975" y="0.356445" width="32.8463" height="7.29917" transform="rotate(90 39.8975 0.356445)" fill="black"/>
+                <rect x="40" y="5.51758" width="49.2694" height="7.29917" transform="rotate(135 40 5.51758)" fill="black"/>
+              </svg>
+              
+            </div>
+            <div class="section-qna__content-employer__questions" id="faqEmployeeList">
+            </div>
           </div>
-          <div class="section-qna__content-employer__questions" id="faqEmployeeList">
-          </div>
         </div>
-       
-
-      </div>
     </section>
-    <footer id="contact">GOODPAGE | Recruitment task</footer>
     <script type="module" src="main.js"></script>
   </body>
 </html>

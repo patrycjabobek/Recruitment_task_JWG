@@ -307,15 +307,16 @@ nav ul li a:before {
       grid-area: jobList;
       display: grid;
 
-      &-item {
+      &--item {
         position: relative;
         border: 1px solid #d1e85a;
-        padding: 8%;
+        padding: 10%;
+        margin: 5%;
         text-align: left;
         cursor: pointer;
         transition: 0.3s ease;
 
-        &__salary {
+        .item__salary {
           position: absolute;
           color: #007895;
           text-align: right;
@@ -324,42 +325,53 @@ nav ul li a:before {
           right: 5%;
         }
 
-        &__info {
+        .item__info {
           line-height: 1.625rem;
-          h2 {
+          h1 {
+            font-size: 1.625rem;
             margin-bottom: 0;
           }
-          h4 {
-            margin-top: 0;
+          h2 {
+            font-size: 0.875rem;
+            margin: 0;
             font-weight: 400;
           }
         }
 
-        &__description {
-          h4 {
+        .item__description {
+          h1 {
+            font-size: 0.75rem;
+            font-weight: 700;
             margin-bottom: 0;
           }
           p {
             margin: 0;
+            font-size: 0.875rem;
           }
         }
 
-        &__more {
-          float: inline-end;
+        .item__more {
+          padding-top: 8%;
+          text-align: right;
 
           a {
             font-weight: 700;
             font-size: 1.375rem;
-            
-            svg {
-              padding-left: 10px;
+
+            div {
+              display: inline-flex;
+              flex-direction: row-reverse;
+              align-items: center;
+              svg {
+                padding-left: 10px;
+              }
             }
           }
         }
 
         &:hover {
           border-radius: 3.125rem;
-          background: #D1E85A;
+          background: #d1e85a;
         }
       }
     }
@@ -369,7 +381,7 @@ nav ul li a:before {
     position: relative;
     text-align: center;
     min-height: 100vh;
-    background: #26BBE1;
+    background: #26bbe1;
 
     &__content {
       display: grid;
@@ -390,7 +402,7 @@ nav ul li a:before {
           text-align: center;
         }
       }
-      
+
       &-employer {
         grid-area: employer;
         cursor: pointer;
@@ -402,7 +414,7 @@ nav ul li a:before {
           }
         }
         &__questions {
-          grid-area: questions
+          grid-area: questions;
         }
       }
 
@@ -413,8 +425,25 @@ nav ul li a:before {
         }
       }
 
-      
     }
+    .collapsible__container {
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      transition: 0.4s;
+
+      .answer {
+        padding: 0 18px;
+        display: none;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+    }
+
+    
   }
 
   &-cta {
