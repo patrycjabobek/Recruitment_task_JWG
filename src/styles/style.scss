@@ -1043,6 +1043,44 @@ nav ul li a:before {
         }
       }
     }
+    &-qna {
+      &__content {
+
+
+        .qna__container {
+          grid-area: questionsAndAnswers;
+          display: flex;
+          justify-content: space-between; 
+          .questions__list {
+            margin: 2%;
+            .collapsible__container {
+              cursor: pointer;
+              margin: 10% 0;
+              width: 100%;
+              text-align: left;
+              border: none;
+              outline: none;
+              transition: 0.4s;
+
+              .question {
+                h1 {
+                  font-size: 0.65rem;
+                }
+              }
+
+              .answer {
+                font-size: 0.65rem;
+              }
+            }
+          }
+
+          .section-qna__content-employer,
+          .section-qna__content-employee {
+            width: 48%;
+          }
+        }
+      }
+    }
   }
 
   .background {
