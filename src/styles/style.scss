@@ -18,6 +18,7 @@ body {
   font-family: "arboria", sans-serif;
   color: $main-text-color;
   background-color: $main-bg-color;
+  position: relative;
   min-height: 100%;
   margin: 0;
   display: grid;
@@ -119,7 +120,6 @@ nav ul li a:before {
     justify-self: right;
     border: none;
     background: none;
-    padding: 0;
     margin: 0;
     cursor: pointer;
 
@@ -170,10 +170,17 @@ nav ul li a:before {
             height: 100%;
           }
         }
+        .employee,
+        .employer {
+          display: none;
+        }
+
+     
       }
     }
   }
 }
+
 .section-wrap {
   display: grid;
   grid-template-rows: auto;
@@ -192,6 +199,11 @@ nav ul li a:before {
     text-align: center;
     min-height: 100vh;
 
+    .background {
+      .socials {
+        display: none;
+      }
+    }
     &__content {
       display: grid;
       grid-template-columns: 12% 1fr 12%;
@@ -286,19 +298,20 @@ nav ul li a:before {
         cursor: pointer;
         display: flex;
         justify-content: center;
+        align-items: center;
 
         h3 {
-          color: #944385;
+          color: #000;
         }
 
         &:hover {
           transition: fill 0.3s ease;
           .arrow,
           h3 {
+            color: #944385;
             rect {
-              fill: #000;
+              fill: #944385;
             }
-            color: #000;
           }
         }
       }
@@ -389,8 +402,7 @@ nav ul li a:before {
       grid-template-rows: auto;
       grid-template-areas:
         ". headerGrid headerGrid."
-        ". employer employee."
-        ". questions questions .";
+        ". qna qna .";
       &-header {
         grid-area: headerGrid;
         align-self: center;
@@ -403,9 +415,31 @@ nav ul li a:before {
         }
       }
 
+      .qna__header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: left;
+        h2 {
+          font-size: 1.25rem;
+        }
+
+        &:hover {
+          transition: fill 0.3s ease;
+
+          .arrow,
+          h2 {
+            color: #fff;
+            rect {
+              fill: #fff;
+            }
+          }
+        }
+      }
       &-employer {
         grid-area: employer;
         cursor: pointer;
+        color: #d1e85a;
 
         #arrow {
           transition: fill 0.3s ease;
@@ -425,149 +459,618 @@ nav ul li a:before {
         }
       }
 
+      .qna__container {
+        grid-area: qna;
+
+        .questions__list {
+          .collapsible__container {
+            cursor: pointer;
+            margin: 10% 0;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+
+            .question {
+              cursor: pointer;
+              display: flex;
+              flex-direction: row-reverse;
+              justify-content: space-between;
+              padding: 2% 5%;
+              width: 100%;
+              color: #fff;
+              background: none;
+              font-weight: 700;
+              line-height: 1.4;
+              border: 1px solid #fff;
+              text-align: left;
+              align-items: center;
+
+              h1 {
+                font-size: 0.825rem;
+                width: 90%;
+              }
+              svg {
+                width: 10%;
+              }
+            }
+
+            .answer {
+              display: none;
+              padding: 5%;
+              overflow: hidden;
+              background: #fff;
+              color: #000;
+              font-size: 0.875rem;
+              font-weight: 400;
+              line-height: 1.45rem;
+              border-radius: 0 0 1.56rem 1.56rem;
+            }
+          }
+        }
+      }
     }
-    .collapsible__container {
-      cursor: pointer;
-      padding: 18px;
+  }
+}
+
+@media (min-width: 640px) {
+  .page-nav {
+    grid-template-columns: $page-margin 0.5fr auto 3fr $page-margin;
+    padding-top: 0;
+    grid-template-areas: ". logo burgerBtn nav .";
+
+    .burger-menu {
+      display: none;
+    }
+
+    &__nav {
+      display: block;
+      justify-self: right;
+      background-color: #f5cdd5;
+      height: auto;
       width: 100%;
-      text-align: left;
-      border: none;
-      outline: none;
-      transition: 0.4s;
+      margin-top: 0;
+      ul {
+        display: inline-flex;
+        width: 100%;
 
-      .answer {
-        padding: 0 18px;
-        display: none;
-        overflow: hidden;
-        transition: max-height 0.2s ease-out;
+        li {
+          a {
+            font-size: 0.65rem;
+            color: #944385;
+          }
+          .employee,
+          .employer {
+            display: block;
+          }
+        }
+        .main-links {
+          display: flex;
+        }
+      }
     }
-    }
-
-    
   }
 
-  &-cta {
-    grid-area: cta;
-    min-height: 30vh;
-    position: relative;
-    overflow: hidden;
-    &__content {
-      display: grid;
-      grid-template-columns: 60vw;
+  .section {
+    &-main {
+      min-height: 90vh;
+    }
+    &-joboffers {
+      &__content {
+        grid-template-columns: 5% 2fr 2fr 1fr 5%;
+        grid-template-areas:
+          ". headerGrid headerGrid more ."
+          ". textGrid  textGrid more.";
+        min-height: 0;
+        padding-top: 5%;
+
+        &-header {
+          h1 {
+            text-align: left;
+          }
+        }
+        &-text {
+          h3 {
+            text-align: left;
+            width: 100%;
+            font-size: 1.25rem;
+          }
+        }
+
+        &-header,
+        &-text {
+          padding-left: 5%;
+        }
+        &-more {
+          a {
+            display: flex;
+          }
+          h3 {
+            color: #000;
+          }
+
+          &:hover {
+            .arrow,
+            h3 {
+              color: #944385;
+              rect {
+                fill: #944385;
+              }
+            }
+          }
+        }
+      }
+
+      .joboffers__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .section-joboffers__list--item {
+          width: 30%;
+          padding: 5%;
+          margin: 2%;
+
+          .item__salary {
+            font-size: 1.875rem;
+            font-weight: 700;
+            right: 5%;
+          }
+
+          .item__info {
+            line-height: normal;
+
+            h1 {
+              font-size: 0.825rem;
+            }
+            h2 {
+              font-size: 0.65rem;
+            }
+          }
+
+          .item__description {
+            h1 {
+              font-size: 0.75rem;
+              margin-bottom: 0;
+            }
+            p {
+              margin: 0;
+              font-size: 0.65rem;
+            }
+          }
+
+          .item__more {
+            padding-top: 5%;
+            a {
+              font-size: 1.25rem;
+            }
+          }
+        }
+      }
+    }
+    &-qna {
+      &__content {
+        grid-template-columns: 5% 2fr 2fr 1fr 5%;
+        grid-template-areas:
+          ". headerGrid headerGrid headerGrid ."
+          ". questionsAndAnswers questionsAndAnswers questionsAndAnswers.";
+        min-height: 0;
+        padding-top: 5%;
+        &-header {
+          grid-area: headerGrid;
+          h1 {
+            margin: 0;
+          }
+        }
+
+        .qna__header {
+          h2 {
+            flex-basis: min-content;
+          }
+        }
+
+        .qna__container {
+          grid-area: questionsAndAnswers;
+          display: flex;
+          .questions__list {
+            margin: 2%;
+            .collapsible__container {
+              cursor: pointer;
+              margin: 10% 0;
+              width: 100%;
+              text-align: left;
+              border: none;
+              outline: none;
+              transition: 0.4s;
+
+              .question {
+                h1 {
+                  font-size: 0.65rem;
+                }
+              }
+
+              .answer {
+                font-size: 0.65rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .page-nav {
+    grid-template-columns: $page-margin 0.5fr auto $page-margin;
+    grid-template-areas: ". logo burgerBtn nav nav .";
+    padding-top: 1%;
+    &__nav {
+      width: 100%;
+      ul {
+        width: 100%;
+        li {
+          a {
+            font-size: 0.875rem;
+            color: #944385;
+          }
+          .employee,
+          .employer {
+            color: #000;
+            background-color: #fff;
+            border-radius: 5.25rem;
+            text-transform: uppercase;
+          }
+        }
+
+        .main-links {
+          display: flex;
+          width: 35%;
+          margin-left: auto;
+          li {
+            width: 50%;
+            margin-left: 2%;
+          }
+
+          .employerLink:hover {
+            a {
+              background: #7fd1be;
+            }
+          }
+
+          .employeeLink:hover {
+            a {
+              background: #f5cdd5;
+            }
+          }
+          .employeeLink:hover,
+          .employerLink:hover {
+            a {
+              color: #944385;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .section {
+    &-main {
+      min-height: 100vh;
+
+      grid-template-columns: 5% 1fr 2fr 0;
       grid-template-rows: auto;
-      text-align: center;
-      justify-content: center;
-      background-size: cover;
-      margin: 0 -10vw;
-      padding: 70px 0;
+      grid-template-areas:
+        ". headerGrid backgroundGrid  ."
+        ". textGrid backgroundGrid  ."
+        ". more backgroundGrid .";
+      &__content {
+        grid-template-columns: 0 1fr 0;
+        margin-top: auto;
+        width: 80%;
+        &-header h1,
+        &-text h3,
+        &-more {
+          text-align: left;
+          margin-left: 0;
+        }
+
+        &-text {
+          h3 {
+            margin: 0;
+          }
+        }
+      }
+    }
+    &-joboffers {
+      top: -10%;
+      &__content {
+        grid-template-columns: 5% 2fr 2fr 1fr 5%;
+        grid-template-areas:
+          ". headerGrid headerGrid more ."
+          ". textGrid  textGrid more.";
+        min-height: 0;
+        padding-top: 5%;
+
+        &-header {
+          h1 {
+            text-align: left;
+            padding-bottom: 0;
+          }
+        }
+        &-text {
+          padding-bottom: 10%;
+          h3 {
+            text-align: left;
+            width: 100%;
+            font-size: 1.25rem;
+          }
+        }
+
+        &-header,
+        &-text {
+          padding-left: 5%;
+        }
+        &-more {
+          a {
+            display: flex;
+          }
+          h3 {
+            color: #000;
+          }
+
+          &:hover {
+            .arrow,
+            h3 {
+              color: #944385;
+              rect {
+                fill: #944385;
+              }
+            }
+          }
+        }
+      }
+    }
+    &-qna {
+      &__content {
+        .qna__container {
+          justify-content: space-around;
+        }
+      }
+    }
+  }
+
+  .background {
+    grid-area: backgroundGrid;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -13%;
+    left: 0;
+    background-image: url(/src/assets/images/cheerful-caucasian-man-points-index-finger-at-copy-20210831091420-utc-21.png);
+    background-repeat: no-repeat;
+    background-position: right;
+
+    .socials {
+      position: absolute;
+      bottom: 12%;
+      right: 15%;
+    }
+    svg {
+      cursor: pointer;
+      position: absolute;
+      &:hover {
+        path {
+          fill: #f5cdd5;
+        }
+      }
+
+      &:last-child {
+        left: 1%;
+      }
     }
   }
 }
-footer {
-  grid-area: footer;
-}
+@media (min-width: 1025px) {
+  .page-nav {
+    grid-template-columns: $page-margin 0.5fr auto $page-margin;
+    grid-template-areas: ". logo burgerBtn nav nav .";
+    padding-top: 1%;
+    &__nav {
+      width: 100%;
+      ul {
+        width: 100%;
+        li {
+          a {
+            font-size: 0.875rem;
+            color: #944385;
+          }
+          .employee,
+          .employer {
+            color: #000;
+            background-color: #fff;
+            border-radius: 5.25rem;
+            text-transform: uppercase;
+          }
+        }
 
-#snackbar {
-  visibility: hidden;
-  min-width: 250px;
-  margin-left: -125px;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  border-radius: 2px;
-  padding: 16px;
-  position: fixed;
-  z-index: 1;
-  left: 50%;
-  bottom: 30px;
-}
+        .main-links {
+          display: flex;
+          width: 35%;
+          margin-left: auto;
+          li {
+            width: 50%;
+            margin-left: 2%;
+          }
 
-#snackbar.show {
-  visibility: visible;
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
+          .employerLink:hover {
+            a {
+              background: #7fd1be;
+            }
+          }
 
-@-webkit-keyframes fadein {
-  from {
-    bottom: 0;
-    opacity: 0;
+          .employeeLink:hover {
+            a {
+              background: #f5cdd5;
+            }
+          }
+          .employeeLink:hover,
+          .employerLink:hover {
+            a {
+              color: #944385;
+            }
+          }
+        }
+      }
+    }
   }
-  to {
-    bottom: 30px;
-    opacity: 1;
+
+  .section {
+    &-main {
+      min-height: 100vh;
+
+      grid-template-columns: 5% 1fr 2fr 0;
+      grid-template-rows: auto;
+      grid-template-areas:
+        ". headerGrid backgroundGrid  ."
+        ". textGrid backgroundGrid  ."
+        ". more backgroundGrid  .";
+      &__content {
+        grid-template-columns: 0 1fr 0;
+        margin-top: auto;
+        width: 80%;
+        &-header h1,
+        &-text h3,
+        &-more {
+          text-align: left;
+          margin-left: 0;
+        }
+      }
+    }
+    &-joboffers {
+      &__content {
+        grid-template-columns: 5% 2fr 2fr 1fr 5%;
+        grid-template-areas:
+          ". headerGrid headerGrid more ."
+          ". textGrid  textGrid more.";
+        min-height: 0;
+        padding-top: 5%;
+
+        &-header {
+          h1 {
+            text-align: left;
+          }
+        }
+        &-text {
+          h3 {
+            text-align: left;
+            width: 100%;
+            font-size: 1.25rem;
+          }
+        }
+
+        &-header,
+        &-text {
+          padding-left: 5%;
+        }
+        &-more {
+          a {
+            display: flex;
+          }
+          h3 {
+            color: #000;
+          }
+
+          &:hover {
+            .arrow,
+            h3 {
+              color: #944385;
+              rect {
+                fill: #944385;
+              }
+            }
+          }
+        }
+      }
+
+      .joboffers__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .section-joboffers__list--item {
+          width: 18%;
+          padding: 2% 4%;
+          margin: 1%;
+
+          .item__salary {
+            font-size: 2.875rem;
+            font-weight: 700;
+            right: 5%;
+          }
+
+          .item__info {
+            line-height: normal;
+
+            h1 {
+              font-size: 1.625rem;
+            }
+            h2 {
+              font-size: 0.875rem;
+            }
+          }
+
+          .item__description {
+            h1 {
+              font-size: 0.75rem;
+              margin-bottom: 0;
+            }
+            p {
+              margin: 0;
+              font-size: 0.975rem;
+              text-align: justify;
+            }
+          }
+
+          .item__more {
+            padding-top: 8%;
+            a {
+              font-size: 1.375rem;
+            }
+          }
+        }
+      }
+    }
   }
-}
 
-@keyframes fadein {
-  from {
-    bottom: 0;
-    opacity: 0;
+  .background {
+    grid-area: backgroundGrid;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -13%;
+    left: 0;
+    background-image: url(/src/assets/images/cheerful-caucasian-man-points-index-finger-at-copy-20210831091420-utc-21.png),
+      url(/src/assets/images/happy-pretty-woman-with-glad-expression-smiles-gen-20210831084343-utc-2-a-1.png);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 7% center, right;
+
+    .socials {
+      position: absolute;
+      bottom: 12%;
+      right: 15%;
+    }
+    svg {
+      cursor: pointer;
+      position: absolute;
+      &:hover {
+        path {
+          fill: #f5cdd5;
+        }
+      }
+
+      &:last-child {
+        left: 1%;
+      }
+    }
   }
-  to {
-    bottom: 30px;
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes fadeout {
-  from {
-    bottom: 30px;
-    opacity: 1;
-  }
-  to {
-    bottom: 0;
-    opacity: 0;
-  }
-}
-
-@keyframes fadeout {
-  from {
-    bottom: 30px;
-    opacity: 1;
-  }
-  to {
-    bottom: 0;
-    opacity: 0;
-  }
-}
-
-.slider {
-  height: 500px;
-  position: relative;
-  overflow: hidden;
-}
-
-.slide {
-  width: 350px;
-  height: 350px;
-  position: absolute;
-  transition: all 0.5s;
-}
-
-.btn {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  padding: 10px;
-  border: none;
-  border-radius: 50%;
-  z-index: 100;
-  cursor: pointer;
-  background-color: #fff;
-  font-size: 18px;
-}
-
-.btn:active {
-  transform: scale(1.1);
-}
-
-.btn-prev {
-  top: 50%;
-  left: 2%;
-}
-
-.btn-next {
-  top: 45%;
-  right: 2%;
 }

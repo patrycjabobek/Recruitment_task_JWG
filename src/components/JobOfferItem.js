@@ -52,8 +52,8 @@ class JobOfferItem {
             iconName: 'arrowRightUpSmall',
             width: 15,
             height: 16,
-            viewBox: '0 0 15 16',
-            color: 'none',
+            color: '',
+            className: '',
             svgContent: svgContent
         }) 
         
