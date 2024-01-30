@@ -96,6 +96,10 @@ footer {
   }
 }
 
+.hidden {
+  display: none;
+}
+
 nav ul li a,
 nav ul li a:after,
 nav ul li a:before {
@@ -441,7 +445,6 @@ nav ul li a:before {
       }
       &-employer {
         grid-area: employer;
-        cursor: pointer;
         color: #d1e85a;
 
         #arrow {
@@ -500,7 +503,6 @@ nav ul li a:before {
             }
 
             .answer {
-              display: none;
               padding: 5%;
               overflow: hidden;
               background: #fff;

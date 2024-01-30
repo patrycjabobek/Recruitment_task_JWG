@@ -34,7 +34,7 @@ class FAQItem {
     questionElement.addEventListener('click', () => this.toggleAnswer())
 
     const answerElement = document.createElement("div");
-    answerElement.classList.add("answer");
+    answerElement.classList.add("answer", "hidden");
     answerElement.textContent = this.answer;
     
     container.appendChild(answerElement);
@@ -44,11 +44,7 @@ class FAQItem {
 
   toggleAnswer() {
     const answer = this.htmlElement.querySelector(".answer");
-    const question = this.htmlElement.querySelector('.question');
-    question.classList.toggle('active');
-    answer.style.display = answer.style.display === "block" ? "none" : "block";
-    console.log(`Toggled answer for question: ${this.question}`);
-    console.log(`Toggled answer:  ${this.answer}`);
+    answer.classList.toggle('hidden');
   }
 }
 
