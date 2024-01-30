@@ -1,4 +1,4 @@
-$main-bg-color: #f5cdd5;
+$main-bg-color: #26BBE1;
 $secondary-bg-color: #326ab7;
 $main-text-color: #1b1b1b;
 $secondary-text-color: #944385;
@@ -109,6 +109,8 @@ nav ul li a:before {
   grid-template-rows: auto;
   align-items: center;
   padding-top: 16px;
+  background: #F5CDD5;
+  
   grid-template-areas:
     ". logo burgerBtn ."
     "nav nav nav nav";
@@ -194,7 +196,8 @@ nav ul li a:before {
   &-main {
     grid-area: main;
     grid-template-columns: 12% 1fr 12%;
-
+    background: #F5CDD5;
+    
     position: relative;
     text-align: center;
     min-height: 100vh;
