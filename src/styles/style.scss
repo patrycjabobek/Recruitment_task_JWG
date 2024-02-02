@@ -518,6 +518,9 @@ nav ul li a:before {
     }
   }
 }
+.background {
+  display: none;
+}
 
 @media (min-width: 640px) {
   .page__nav {
@@ -867,6 +870,10 @@ nav ul li a:before {
       }
     }
   }
+
+  .background {
+    display: block;
+  }
 }
 @media (min-width: 1025px) {
   .page__nav {
@@ -971,6 +978,7 @@ nav ul li a:before {
         background-position: 7% center, right;
 
         .socials {
+          display: flex;
           position: absolute;
           bottom: 12%;
           right: 15%;
@@ -991,7 +999,7 @@ nav ul li a:before {
       }
     }
     &__joboffers {
-      top: -10%;
+      top: -13%;
       &--content {
         grid-template-columns: 5% 2fr 2fr 1fr 5%;
         grid-template-areas:
@@ -1127,6 +1135,7 @@ nav ul li a:before {
         }
       }
     }
+   
   }
 }
 
@@ -1202,6 +1211,16 @@ nav ul li a:before {
           h1 {
             font-size: 3rem;
           }
+        }
+      }
+
+      .background {
+        width: 110%;
+        top: -15%;
+        background-size: contain;
+        background-position: left, right;
+        .socials {
+          bottom: 18%;
         }
       }
     }
