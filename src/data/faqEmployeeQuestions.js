@@ -15,5 +15,10 @@ export const faqEmployeeQuestions = [
       answer:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem facilisi at tincidunt condimentum ipsum non. Felis erat curabitur mauris morbi. Felis erat curabitur mauris morbi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem facilisi at tincidunt condimentum ipsum non. Felis erat curabitur mauris morbi. Felis erat curabitur mauris morbi. Felis erat curabitur mauris morbi. Felis erat curabitur mauris morbi.",
     },
+    {
+      question: "Lorem ipsum dolor sim lorem?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem facilisi at tincidunt condimentum ipsum non. Felis erat curabitur mauris morbi. Felis erat curabitur mauris morbi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem facilisi at tincidunt condimentum ipsum non. Felis erat curabitur mauris morbi. Felis erat curabitur mauris morbi. Felis erat curabitur mauris morbi. Felis erat curabitur mauris morbi.",
+    },
   ];
   

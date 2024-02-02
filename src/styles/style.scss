@@ -1,4 +1,4 @@
-$main-bg-color: #26BBE1;
+$main-bg-color: #26bbe1;
 $secondary-bg-color: #326ab7;
 $main-text-color: #1b1b1b;
 $secondary-text-color: #944385;
@@ -106,20 +106,21 @@ nav ul li a:before {
   transition: all 0.5s;
 }
 
-.page-nav {
+.page__nav {
   grid-area: nav;
   display: grid;
   grid-template-columns: $page-margin auto 1fr $page-margin;
   grid-template-rows: auto;
   align-items: center;
   padding-top: 16px;
-  background: #F5CDD5;
-  
+  padding-bottom: 10px;
+  background: #f5cdd5;
+
   grid-template-areas:
     ". logo burgerBtn ."
     "nav nav nav nav";
 
-  .burger-menu {
+  .burger__menu {
     position: relative;
     grid-area: burgerBtn;
     width: 30%;
@@ -141,11 +142,11 @@ nav ul li a:before {
     }
   }
 
-  &__logo {
+  &--logo {
     grid-area: logo;
   }
 
-  &__nav {
+  &--menu {
     grid-area: nav;
     background-color: #26bbe1;
     display: none;
@@ -180,28 +181,26 @@ nav ul li a:before {
         .employer {
           display: none;
         }
-
-     
       }
     }
   }
 }
 
-.section-wrap {
+.section__wrap {
   display: grid;
   grid-template-rows: auto;
-  &__content {
+  &--content {
     grid-column: 2/3;
     color: $secondary-text-color;
   }
 }
 
 .section {
-  &-main {
+  &__main {
     grid-area: main;
     grid-template-columns: 12% 1fr 12%;
-    background: #F5CDD5;
-    
+    background: #f5cdd5;
+
     position: relative;
     text-align: center;
     min-height: 100vh;
@@ -211,7 +210,7 @@ nav ul li a:before {
         display: none;
       }
     }
-    &__content {
+    &--content {
       display: grid;
       grid-template-columns: 12% 1fr 12%;
       grid-template-rows: auto;
@@ -219,7 +218,7 @@ nav ul li a:before {
         ". headerGrid ."
         ". textGrid ."
         ". more .";
-      &-header {
+      .content__header {
         grid-area: headerGrid;
         align-self: center;
         h1 {
@@ -230,7 +229,7 @@ nav ul li a:before {
           text-align: center;
         }
       }
-      &-text {
+      .content__text {
         grid-area: textGrid;
         display: flex;
         justify-content: center;
@@ -245,7 +244,7 @@ nav ul li a:before {
           margin: 0 auto 10% auto;
         }
       }
-      &-more {
+      .content__more {
         grid-area: more;
         cursor: pointer;
 
@@ -258,12 +257,12 @@ nav ul li a:before {
       }
     }
   }
-  &-joboffers {
+  &__joboffers {
     grid-area: joboffers;
     position: relative;
     text-align: center;
     background-color: #fff;
-    &__content {
+    &--content {
       display: grid;
       grid-template-columns: 12% 1fr 12%;
       grid-template-rows: auto;
@@ -273,7 +272,7 @@ nav ul li a:before {
         ". more .";
       min-height: 100vh;
 
-      &-header {
+      .content__header {
         grid-area: headerGrid;
         align-self: center;
         h1 {
@@ -285,7 +284,7 @@ nav ul li a:before {
           text-align: center;
         }
       }
-      &-text {
+      .content__text {
         grid-area: textGrid;
         display: flex;
         justify-content: center;
@@ -300,7 +299,7 @@ nav ul li a:before {
           margin: 0 auto 10% auto;
         }
       }
-      &-more {
+      .content__more {
         grid-area: more;
         cursor: pointer;
         display: flex;
@@ -323,11 +322,11 @@ nav ul li a:before {
         }
       }
     }
-    &__list {
+    .joboffers__list {
       grid-area: jobList;
       display: grid;
 
-      &--item {
+      .list__item {
         position: relative;
         border: 1px solid #d1e85a;
         padding: 10%;
@@ -396,21 +395,21 @@ nav ul li a:before {
       }
     }
   }
-  &-qna {
+  &__qna {
     grid-area: qanda;
     position: relative;
     text-align: center;
-    min-height: 100vh;
+    min-height: 90vh;
     background: #26bbe1;
 
-    &__content {
+    &--content {
       display: grid;
       grid-template-columns: 12% 0.5fr 0.5fr 12%;
       grid-template-rows: auto;
       grid-template-areas:
         ". headerGrid headerGrid."
         ". qna qna .";
-      &-header {
+      .content__header {
         grid-area: headerGrid;
         align-self: center;
         h1 {
@@ -443,28 +442,6 @@ nav ul li a:before {
           }
         }
       }
-      &-employer {
-        grid-area: employer;
-        color: #d1e85a;
-
-        #arrow {
-          transition: fill 0.3s ease;
-          &:hover {
-            fill: #fff;
-          }
-        }
-        &__questions {
-          grid-area: questions;
-        }
-      }
-
-      &-employee {
-        grid-area: employee;
-        &__questions {
-          grid-area: questions;
-        }
-      }
-
       .qna__container {
         grid-area: qna;
 
@@ -493,9 +470,10 @@ nav ul li a:before {
               text-align: left;
               align-items: center;
 
-              h1 {
+              h3 {
                 font-size: 0.825rem;
                 width: 90%;
+                color: #fff;
               }
               svg {
                 width: 10%;
@@ -515,21 +493,43 @@ nav ul li a:before {
           }
         }
       }
+
+      .content__employer {
+        grid-area: employer;
+        color: #d1e85a;
+
+        #arrow {
+          transition: fill 0.3s ease;
+          &:hover {
+            fill: #fff;
+          }
+        }
+        &__questions {
+          grid-area: questions;
+        }
+      }
+
+      .content__employee {
+        grid-area: employee;
+        &__questions {
+          grid-area: questions;
+        }
+      }
     }
   }
 }
 
 @media (min-width: 640px) {
-  .page-nav {
+  .page__nav {
     grid-template-columns: $page-margin 0.5fr auto 3fr $page-margin;
     padding-top: 0;
     grid-template-areas: ". logo burgerBtn nav .";
 
-    .burger-menu {
+    .burger__menu {
       display: none;
     }
 
-    &__nav {
+    &--menu {
       display: block;
       justify-self: right;
       background-color: #f5cdd5;
@@ -538,6 +538,7 @@ nav ul li a:before {
       margin-top: 0;
       ul {
         display: inline-flex;
+        justify-content: end;
         width: 100%;
 
         li {
@@ -550,7 +551,7 @@ nav ul li a:before {
             display: block;
           }
         }
-        .main-links {
+        .menu__links {
           display: flex;
         }
       }
@@ -558,11 +559,16 @@ nav ul li a:before {
   }
 
   .section {
-    &-main {
+    &__main {
       min-height: 90vh;
+      &--content {
+        .content__header {
+          align-self: end;
+        }
+      }
     }
-    &-joboffers {
-      &__content {
+    &__joboffers {
+      &--content {
         grid-template-columns: 5% 2fr 2fr 1fr 5%;
         grid-template-areas:
           ". headerGrid headerGrid more ."
@@ -570,12 +576,12 @@ nav ul li a:before {
         min-height: 0;
         padding-top: 5%;
 
-        &-header {
+        .content__header {
           h1 {
             text-align: left;
           }
         }
-        &-text {
+        .content__text {
           h3 {
             text-align: left;
             width: 100%;
@@ -583,11 +589,11 @@ nav ul li a:before {
           }
         }
 
-        &-header,
-        &-text {
+        .content__header,
+        .content__text {
           padding-left: 5%;
         }
-        &-more {
+        .content__more {
           a {
             display: flex;
           }
@@ -611,7 +617,7 @@ nav ul li a:before {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        .section-joboffers__list--item {
+        .list__item {
           width: 30%;
           padding: 5%;
           margin: 2%;
@@ -653,15 +659,14 @@ nav ul li a:before {
         }
       }
     }
-    &-qna {
-      &__content {
+    &__qna {
+      &--content {
         grid-template-columns: 5% 2fr 2fr 1fr 5%;
         grid-template-areas:
           ". headerGrid headerGrid headerGrid ."
           ". questionsAndAnswers questionsAndAnswers questionsAndAnswers.";
         min-height: 0;
-        padding-top: 5%;
-        &-header {
+        .content__header {
           grid-area: headerGrid;
           h1 {
             margin: 0;
@@ -677,6 +682,7 @@ nav ul li a:before {
         .qna__container {
           grid-area: questionsAndAnswers;
           display: flex;
+          justify-content: center;
           .questions__list {
             margin: 2%;
             .collapsible__container {
@@ -689,7 +695,7 @@ nav ul li a:before {
               transition: 0.4s;
 
               .question {
-                h1 {
+                h3 {
                   font-size: 0.65rem;
                 }
               }
@@ -706,11 +712,11 @@ nav ul li a:before {
 }
 
 @media (min-width: 769px) {
-  .page-nav {
+  .page__nav {
     grid-template-columns: $page-margin 0.5fr auto $page-margin;
     grid-template-areas: ". logo burgerBtn nav nav .";
     padding-top: 1%;
-    &__nav {
+    &--menu {
       width: 100%;
       ul {
         width: 100%;
@@ -719,76 +725,79 @@ nav ul li a:before {
             font-size: 0.875rem;
             color: #944385;
           }
-          .employee,
-          .employer {
-            color: #000;
-            background-color: #fff;
-            border-radius: 5.25rem;
-            text-transform: uppercase;
-          }
-        }
-
-        .main-links {
-          display: flex;
-          width: 35%;
-          margin-left: auto;
-          li {
-            width: 50%;
-            margin-left: 2%;
-          }
-
-          .employerLink:hover {
-            a {
-              background: #7fd1be;
-            }
-          }
-
-          .employeeLink:hover {
-            a {
-              background: #f5cdd5;
-            }
-          }
-          .employeeLink:hover,
-          .employerLink:hover {
-            a {
-              color: #944385;
-            }
-          }
         }
       }
     }
   }
 
   .section {
-    &-main {
-      min-height: 100vh;
-
+    &__main {
+      min-height: auto;
       grid-template-columns: 5% 1fr 2fr 0;
       grid-template-rows: auto;
       grid-template-areas:
         ". headerGrid backgroundGrid  ."
         ". textGrid backgroundGrid  ."
         ". more backgroundGrid .";
-      &__content {
-        grid-template-columns: 0 1fr 0;
-        margin-top: auto;
-        width: 80%;
-        &-header h1,
-        &-text h3,
-        &-more {
+      &--content {
+        display: grid;
+        grid-template-columns: 2fr 0.5fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+          "headerGrid headerGrid"
+          "textGrid more";
+        width: 90%;
+        .content__header h1,
+        .content__text h3,
+        .content__more {
           text-align: left;
           margin-left: 0;
         }
 
-        &-text {
-          h3 {
-            margin: 0;
+        .content__header {
+          margin-top: 30%;
+        }
+
+        .content__text {
+          margin: 10% 0;
+        }
+
+        .content__more {
+          align-self: center;
+        }
+      }
+      .background {
+        grid-area: backgroundGrid;
+        position: absolute;
+        width: 100%;
+        height: 125%;
+        top: -20%;
+        left: 0;
+        background-image: url(/src/assets/images/cheerful-caucasian-man-points-index-finger-at-copy-20210831091420-utc-21.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: auto;
+        .socials {
+          position: absolute;
+          bottom: 12%;
+          right: 15%;
+        }
+        svg {
+          cursor: pointer;
+          position: absolute;
+          &:hover {
+            path {
+              fill: #f5cdd5;
+            }
+          }
+
+          &:last-child {
+            left: 1%;
           }
         }
       }
     }
-    &-joboffers {
-      top: -10%;
+    &__joboffers {
       &__content {
         grid-template-columns: 5% 2fr 2fr 1fr 5%;
         grid-template-areas:
@@ -835,6 +844,20 @@ nav ul li a:before {
           }
         }
       }
+
+      .joboffers__list {
+        .list__item {
+          width: 22%;
+          padding: 3%;
+          margin: 1%;
+
+          .item__more {
+            a {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
     }
     &-qna {
       &__content {
@@ -844,44 +867,21 @@ nav ul li a:before {
       }
     }
   }
-
-  .background {
-    grid-area: backgroundGrid;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: -13%;
-    left: 0;
-    background-image: url(/src/assets/images/cheerful-caucasian-man-points-index-finger-at-copy-20210831091420-utc-21.png);
-    background-repeat: no-repeat;
-    background-position: right;
-
-    .socials {
-      position: absolute;
-      bottom: 12%;
-      right: 15%;
-    }
-    svg {
-      cursor: pointer;
-      position: absolute;
-      &:hover {
-        path {
-          fill: #f5cdd5;
-        }
-      }
-
-      &:last-child {
-        left: 1%;
-      }
-    }
-  }
 }
 @media (min-width: 1025px) {
-  .page-nav {
+  .page__nav {
     grid-template-columns: $page-margin 0.5fr auto $page-margin;
     grid-template-areas: ". logo burgerBtn nav nav .";
     padding-top: 1%;
-    &__nav {
+
+    &--logo {
+      svg {
+        width: 150px;
+        height: 40px;
+      }
+    }
+
+    &--menu {
       width: 100%;
       ul {
         width: 100%;
@@ -899,10 +899,9 @@ nav ul li a:before {
           }
         }
 
-        .main-links {
+        .menu__links {
           display: flex;
-          width: 35%;
-          margin-left: auto;
+          width: 38%;
           li {
             width: 50%;
             margin-left: 2%;
@@ -931,42 +930,82 @@ nav ul li a:before {
   }
 
   .section {
-    &-main {
+    &__main {
       min-height: 100vh;
-
-      grid-template-columns: 5% 1fr 2fr 0;
+      grid-template-columns: 5% 0.5fr 2fr 0;
       grid-template-rows: auto;
       grid-template-areas:
         ". headerGrid backgroundGrid  ."
-        ". textGrid backgroundGrid  ."
-        ". more backgroundGrid  .";
-      &__content {
-        grid-template-columns: 0 1fr 0;
-        margin-top: auto;
-        width: 80%;
-        &-header h1,
-        &-text h3,
-        &-more {
+        ". textGrid backgroundGrid  .";
+      &--content {
+        .content__header h1,
+        .content__text h3,
+        .content__more {
           text-align: left;
           margin-left: 0;
         }
+
+        .content__header {
+          width: 120%;
+        }
+
+        .content__text {
+          align-self: center;
+        }
+
+        .content__more,
+        .content__text {
+          margin-top: 15%;
+        }
+      }
+
+      .background {
+        grid-area: backgroundGrid;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: -13%;
+        background-image: url(/src/assets/images/cheerful-caucasian-man-points-index-finger-at-copy-20210831091420-utc-21.png),
+          url(/src/assets/images/happy-pretty-woman-with-glad-expression-smiles-gen-20210831084343-utc-2-a-1.png);
+        background-repeat: no-repeat, no-repeat;
+        background-position: 7% center, right;
+
+        .socials {
+          position: absolute;
+          bottom: 12%;
+          right: 15%;
+        }
+        svg {
+          cursor: pointer;
+          position: absolute;
+          &:hover {
+            path {
+              fill: #f5cdd5;
+            }
+          }
+
+          &:last-child {
+            left: 1%;
+          }
+        }
       }
     }
-    &-joboffers {
-      &__content {
+    &__joboffers {
+      top: -10%;
+      &--content {
         grid-template-columns: 5% 2fr 2fr 1fr 5%;
         grid-template-areas:
           ". headerGrid headerGrid more ."
           ". textGrid  textGrid more.";
         min-height: 0;
-        padding-top: 5%;
+        padding: 5% 0;
 
-        &-header {
+        .content__header {
           h1 {
             text-align: left;
           }
         }
-        &-text {
+        .content__text {
           h3 {
             text-align: left;
             width: 100%;
@@ -974,11 +1013,11 @@ nav ul li a:before {
           }
         }
 
-        &-header,
-        &-text {
+        .content__header,
+        .content__text {
           padding-left: 5%;
         }
-        &-more {
+        .content__more {
           a {
             display: flex;
           }
@@ -1002,9 +1041,9 @@ nav ul li a:before {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        .section-joboffers__list--item {
-          width: 18%;
-          padding: 2% 4%;
+        .list__item {
+          width: 22%;
+          padding: 2%3%;
           margin: 1%;
 
           .item__salary {
@@ -1045,14 +1084,15 @@ nav ul li a:before {
         }
       }
     }
-    &-qna {
-      &__content {
-
-
+    &__qna {
+      &--content {
+        .content__header {
+          margin-bottom: 5%;
+        }
         .qna__container {
           grid-area: questionsAndAnswers;
           display: flex;
-          justify-content: space-between; 
+          justify-content: space-between;
           .questions__list {
             margin: 2%;
             .collapsible__container {
@@ -1065,55 +1105,192 @@ nav ul li a:before {
               transition: 0.4s;
 
               .question {
-                h1 {
-                  font-size: 0.65rem;
+                h3 {
+                  font-size: 0.875rem;
                 }
               }
 
               .answer {
-                font-size: 0.65rem;
+                font-size: 1rem;
               }
             }
           }
 
-          .section-qna__content-employer,
-          .section-qna__content-employee {
+          .content__employer,
+          .content__employee {
             width: 48%;
+
+            .qna__header {
+              justify-content: space-evenly;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1366px) {
+  .page__nav {
+    grid-template-columns: $page-margin 0.5fr auto $page-margin;
+    grid-template-areas: ". logo burgerBtn nav nav .";
+    padding-top: 1%;
+
+    &--logo {
+      svg {
+        width: 200px;
+        height: 50px;
+      }
+    }
+    &--menu {
+      width: 100%;
+      ul {
+        width: 100%;
+        li {
+          a {
+            font-size: 1rem;
+            color: #944385;
+            padding: 12px 18px;
+          }
+          .employee,
+          .employer {
+            color: #000;
+            background-color: #fff;
+            border-radius: 5.25rem;
+            text-transform: uppercase;
+          }
+        }
+
+        .menu__links {
+          display: flex;
+          width: 35%;
+          li {
+            width: 50%;
+            margin-left: 2%;
+          }
+
+          .employerLink:hover {
+            a {
+              background: #7fd1be;
+            }
+          }
+
+          .employeeLink:hover {
+            a {
+              background: #f5cdd5;
+            }
+          }
+          .employeeLink:hover,
+          .employerLink:hover {
+            a {
+              color: #944385;
+            }
           }
         }
       }
     }
   }
 
-  .background {
-    grid-area: backgroundGrid;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: -13%;
-    left: 0;
-    background-image: url(/src/assets/images/cheerful-caucasian-man-points-index-finger-at-copy-20210831091420-utc-21.png),
-      url(/src/assets/images/happy-pretty-woman-with-glad-expression-smiles-gen-20210831084343-utc-2-a-1.png);
-    background-repeat: no-repeat, no-repeat;
-    background-position: 7% center, right;
+  .section {
+    &__main {
+      grid-template-columns: 5% auto 2fr 5%;
 
-    .socials {
-      position: absolute;
-      bottom: 12%;
-      right: 15%;
-    }
-    svg {
-      cursor: pointer;
-      position: absolute;
-      &:hover {
-        path {
-          fill: #f5cdd5;
+      &--content {
+        .content__header {
+          width: 80%;
+
+          h1 {
+            font-size: 3rem;
+          }
         }
       }
+    }
+    &__joboffers {
+      .joboffers__list {
+        .list__item {
+          width: 18%;
+          padding: 2% 3%;
 
-      &:last-child {
-        left: 1%;
+          .item__info {
+            line-height: 1.6;
+
+            h1 {
+              font-size: 1.825rem;
+            }
+            h2 {
+              font-size: 1rem;
+            }
+          }
+
+          .item__description {
+            h1 {
+              font-size: 1.15rem;
+            }
+            p {
+              margin: 1% 0;
+              font-size: 1rem;
+              line-height: 1.44;
+            }
+          }
+        }
       }
+    }
+    &__qna {
+      &--content {
+        .qna__container {
+          .questions__list {
+            margin: 2%;
+            .collapsible__container {
+              .question {
+                h3 {
+                  font-size: 1rem;
+                }
+              }
+            }
+          }
+
+          .content__employer,
+          .content__employee {
+            .qna__header {
+              h2 {
+                font-size: 2rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.background {
+  grid-area: backgroundGrid;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -13%;
+  left: 0;
+  background-image: url(/src/assets/images/cheerful-caucasian-man-points-index-finger-at-copy-20210831091420-utc-21.png),
+    url(/src/assets/images/happy-pretty-woman-with-glad-expression-smiles-gen-20210831084343-utc-2-a-1.png);
+  background-repeat: no-repeat, no-repeat;
+  background-position: 7% center, right;
+
+  .socials {
+    position: absolute;
+    bottom: 12%;
+    right: 15%;
+  }
+  svg {
+    cursor: pointer;
+    position: absolute;
+    &:hover {
+      path {
+        fill: #f5cdd5;
+      }
+    }
+
+    &:last-child {
+      left: 1%;
     }
   }
 }

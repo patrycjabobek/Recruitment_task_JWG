@@ -30,8 +30,8 @@ jobList.render()
 
 
 // menu nav
-let pageNav = document.querySelector(".page-nav"),
-  burgerBtn = document.getElementById("burger-menu"),
+let pageNav = document.querySelector(".page__nav"),
+  burgerBtn = document.getElementById("burger__menu"),
   openIcon = document.querySelector(".open"),
   closeIcon = document.querySelector(".close"),
   nav = document.getElementById("links");

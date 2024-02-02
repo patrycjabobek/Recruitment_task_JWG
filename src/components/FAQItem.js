@@ -26,7 +26,7 @@ class FAQItem {
     });
     arrowIcon.render(questionElement);
     
-    const questionText = document.createElement('h1');
+    const questionText = document.createElement('h3');
     questionText.textContent = this.question;
     questionElement.appendChild(questionText);
     container.appendChild(questionElement);

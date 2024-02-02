@@ -12,7 +12,7 @@ class JobOfferItem {
 
     createComponent() {
         const container = document.createElement('div');
-        container.classList.add("section-joboffers__list--item");
+        container.classList.add("list__item");
 
         const salaryElement = document.createElement('div');
         salaryElement.classList.add('item__salary');
